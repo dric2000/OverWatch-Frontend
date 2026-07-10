@@ -1,6 +1,6 @@
-import type { RootState } from "@/app/store";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { logout, setCredentials } from "./authSlice";
+import type { RootState } from "../store";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api",
@@ -14,6 +14,7 @@ const baseQuery = fetchBaseQuery({
   },
 });
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const baseQueryWithReauth = async (args: any, api: any, extraOptions: any) => {
   let result = await baseQuery(args, api, extraOptions);
 
