@@ -60,7 +60,6 @@ export const articlesApi = createApi({
     }),
     getArticle: builder.query<Article, number>({
       query: (id) => `/articles/${id}/`,
-      providesTags: (result, error, id) => [{ type: "Article", id }],
     }),
     createArticle: builder.mutation<Article, Partial<Article>>({
       query: (body) => ({
@@ -79,7 +78,6 @@ export const articlesApi = createApi({
         method: "PUT",
         body,
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: "Article", id }],
     }),
     deleteArticle: builder.mutation<void, number>({
       query: (id) => ({
@@ -97,7 +95,6 @@ export const articlesApi = createApi({
     }),
     getSecteur: builder.query<Secteur, number>({
       query: (id) => `/secteurs/${id}/`,
-      providesTags: (result, error, id) => [{ type: "Secteur", id }],
     }),
     createSecteur: builder.mutation<Secteur, Partial<Secteur>>({
       query: (body) => ({
@@ -116,7 +113,6 @@ export const articlesApi = createApi({
         method: "PUT",
         body,
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: "Secteur", id }],
     }),
     deleteSecteur: builder.mutation<void, number>({
       query: (id) => ({
@@ -134,7 +130,6 @@ export const articlesApi = createApi({
     }),
     getUnite: builder.query<UniteMesure, number>({
       query: (id) => `/unites-mesure/${id}/`,
-      providesTags: (result, error, id) => [{ type: "UniteMesure", id }],
     }),
     createUnite: builder.mutation<UniteMesure, Partial<UniteMesure>>({
       query: (body) => ({
@@ -153,7 +148,6 @@ export const articlesApi = createApi({
         method: "PUT",
         body,
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: "UniteMesure", id }],
     }),
     deleteUnite: builder.mutation<void, number>({
       query: (id) => ({

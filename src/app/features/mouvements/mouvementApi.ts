@@ -96,7 +96,6 @@ export const mouvementApi = createApi({
     }),
     getBon: builder.query<Bon, number>({
       query: (id) => `/bons/${id}/`,
-      providesTags: (result, error, id) => [{ type: "Bon", id }],
     }),
     getBonHistorique: builder.query<HistoriqueBon[], number>({
       query: (id) => `/bons/${id}/historique/`,
@@ -115,7 +114,6 @@ export const mouvementApi = createApi({
         method: "PUT",
         body,
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: "Bon", id }],
     }),
     deleteBon: builder.mutation<void, number>({
       query: (id) => ({
