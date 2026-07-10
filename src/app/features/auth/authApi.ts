@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { logout, setCredentials } from "./authSlice";
 import type { RootState } from "../store";
+import { logout, setCredentials } from "./authSlice";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api",
+  baseUrl: import.meta.env.VITE_API_URL || "http://127.0.0.1:8000",
   prepareHeaders: (headers, { getState }) => {
     const state = getState() as RootState;
     const token = state.auth.accessToken;
